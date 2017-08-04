@@ -7,4 +7,12 @@
       class: "nav-link #{'active' if params[:section] == section.name}") %>
     </li>
   <% end %>
+
+  <% @food_items.each do |food_item| %>
+      =========== 
+      name: <%= food_item.name %><br>
+      price: <%= food_item.price %><br>
+      description: <%= food_item.description %><br>
+  <% end %>
+
 </ul>
