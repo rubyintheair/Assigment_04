@@ -1,10 +1,11 @@
 class FoodItemsController < ApplicationController
-  before_action :set_food_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_items, only: [:show, :edit, :update, :destroy]
 
   # GET /food_items
   # GET /food_items.json
   def index
-    @food_items = FoodItem.all
+    @section = Section.find(params[:section_id].to_i) 
+    @food_items = @section.food_items
   end
 
   # GET /food_items/1
@@ -63,8 +64,9 @@ class FoodItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_food_item
-      @food_item = FoodItem.find(params[:id])
+    def set_items
+      @section = Section.find(params[:section_id].to_i)
+      @food_item = FoodItem.find(params[:id].to_i)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
