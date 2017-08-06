@@ -12,7 +12,8 @@ class SectionsController < ApplicationController
   end
 
   def show
-    @section = Section.find(params[:id])
+    @sections = Section.all
+    @section = Section.find_by(params[:id])
     @food_items = @section.food_items
   end 
 end

@@ -6,15 +6,26 @@
       class: "nav-link #{'active' if params[:section] == section.name}") %>
     </li>
   <% end %>
-
-  <% if @food_items.present? %>
-    <br><br>
-    <% @food_items.each do |food_item| %>
-      =======<br>
-      name: <%= food_item.name %><br>
-      price: <%= food_item.price %><br>
-      description: <%= food_item.description %><br>
-    <% end %>
-  <% end %>
- 
 </ul>
+
+<% if @food_items.present? %>
+  <br><br>
+  <% @food_items.each do |food_item| %>
+    <div class="card fooditems" style="width: 20rem; margin: 10px; float: left">
+      <img class="card-img-top" src="<%= food_item.fake_image_url %>">
+      <div class="card-block">
+        <h4 class="card-title">
+          <%= food_item.name %>:<br> <%= number_to_currency(food_item.price) %>
+        </h4>
+        <p class="card-text"><%= food_item.description %></p>
+
+        <% form_for LineItem.new, url: carts_add_path do |f| %>
+          <%= f.hidden_field :food_item_id, value: food_item.id %>
+          <%= f.number_field :quantity, class: "form-control" %>
+          <%= f.submit "Order", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+ 

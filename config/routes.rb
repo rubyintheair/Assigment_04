@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :food_items
   end 
   
-
+  post "carts/add"
   # get "menu" => "sections#index"
   get "contact_us" => "home#contact_us"
   root "home#index"

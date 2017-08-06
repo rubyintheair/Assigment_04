@@ -21,7 +21,11 @@
             <a class="nav-link" href="<%= sections_path%>"><strong>Menu</strong><span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Cart <%= @cart.item_count %></a>
+            <a class="nav-link" href="<%= sections_path%>">Cart 
+            <span class="badge badge-primary">
+              <%= @cart %>
+            </span>
+            </a>
           </li>
         </ul>
       </div>
