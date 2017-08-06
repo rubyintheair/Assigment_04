@@ -13,7 +13,7 @@ class SectionsController < ApplicationController
 
   def show
     @sections = Section.all
-    @section = Section.find_by(params[:id])
+    @section = Section.find(params[:id])
     @food_items = @section.food_items
   end 
 end

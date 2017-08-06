@@ -19,8 +19,8 @@
         </h4>
         <p class="card-text"><%= food_item.description %></p>
 
-        <% form_for LineItem.new, url: carts_add_path do |f| %>
-          <%= f.hidden_field :food_item_id, value: food_item.id %>
+        <%= form_for LineItem.new(food_item: food_item), url: carts_add_path do |f| %>
+          <%= f.hidden_field :food_item_id %>
           <%= f.number_field :quantity, class: "form-control" %>
           <%= f.submit "Order", class: "btn btn-primary" %>
         <% end %>

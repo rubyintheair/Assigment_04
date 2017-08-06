@@ -16,6 +16,27 @@
       </li>
     <% end %>
   </ul>
- 
 
+====================== views/sections/index -====================
+  <% if @food_items.present? %>
+    <br><br>
+    <% @food_items.each do |food_item| %>
+      =======<br>
+      name: <%= food_item.name %><br>
+      price: <%= food_item.price %><br>
+      description: <%= food_item.description %><br>
+    <% end %>
+  <% end %>
  
+ ====================== views/sections/show -====================
+
+   <h1>Section: <%= @section.name %></h1>
+
+  
+
+  <% @food_items.each do |food_item| %>
+      <br>=========== <br>
+      name: <%= food_item.name %><br>
+      price: <%= food_item.price %><br>
+      description: <%= food_item.description %><br>
+  <% end %>

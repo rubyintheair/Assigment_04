@@ -11,7 +11,6 @@
   <body>
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <a class="navbar-brand" href="<%= root_path%>"><strong>Mập lắm rou!</strong></a>
-     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -21,15 +20,18 @@
             <a class="nav-link" href="<%= sections_path%>"><strong>Menu</strong><span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%= sections_path%>">Cart 
+            <a class="nav-link" href="/">Cart 
             <span class="badge badge-primary">
-              <%= @cart %>
+              <%= @cart.item_count %>
             </span>
             </a>
           </li>
         </ul>
       </div>
     </nav>
+      <% flash.each do |key, value| %>
+        <div class="alert <%= flasherize(key) %>"><%= value %></div>
+      <% end %>
 
     <div class="container">
       <%= yield %>
