@@ -1,7 +1,8 @@
 <br><br>
 
-<ul class="nav nav-pills">
   <h1>Section: <%= @section.name %></h1>
+
+  
 
   <% @food_items.each do |food_item| %>
       <br>=========== <br>
@@ -10,4 +11,3 @@
       description: <%= food_item.description %><br>
   <% end %>
 
-</ul>
