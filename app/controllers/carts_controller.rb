@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   def add
     cart = get_cart
     line_item = cart.line_items.create! line_item_params
-    unless cart.save
+    if cart.save
       flash[:success] = "Added."
     else
       flash[:error] = "Cannot add #{line_item.food_item.name}. Error: #{line_item.errors.full_messages.to_sentence}"
